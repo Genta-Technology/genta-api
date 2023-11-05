@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling", "requests"]
+build-backend = "hatchling.build"
+
+[project]
+name = "genta_api"
+version = "0.0.1"
+authors = [
+  { name="Rifky Bujana Bisri", email="rifky@genta.tech" },
+]
+description = "Simple python interface to access models from Genta API."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Genta-Technology/genta-api"
+"Bug Tracker" = "https://github.com/Genta-Technology/genta-api/issues"
+
