@@ -8,10 +8,10 @@ class GentaAPI:
 
     GentaAPI is a Python wrapper for Genta API.
 
-    Args:
+    ## Args:
         token (str): token from https://genta.tech/
 
-    Examples:
+    ## Examples:
         >>> from genta_api import GentaAPI
         >>> api = GentaAPI(token='your-token')
         >>> api.ChatCompletion(
@@ -38,9 +38,9 @@ class GentaAPI:
         ...     typical_p=0.95,
         ...     watermark=False,
         ... )
-        ... (200, {
+        ... ({
         ...     "generated_text": "Hello, how are you?",
-        ... })
+        ... }, 200)
     """
 
     CHAT_URL = "https://api.genta.tech/chat/"
@@ -75,7 +75,7 @@ class GentaAPI:
         
         Create a chatbot response from chat history and parameters to the model name.
 
-        Args:
+        ### Args:
             chat_history (List[Dict[str, str]]): chat history
             model_name (str, optional): model name. Defaults to 'Starstreak'.
             best_of (Optional[int], optional): number of samples to generate. Defaults to 1.
@@ -95,10 +95,10 @@ class GentaAPI:
             typical_p (Optional[float], optional): typical p. Defaults to 0.95.
             watermark (Optional[str], optional): watermark. Defaults to False.
 
-        Raises:
+        ### Raises:
             ValueError: chat_history must be list of dict with role key: user, assistant, system
 
-        Returns:
+        ### Returns:
             Union[Dict[str, str], int]: response from API and status code
         """
         
@@ -162,7 +162,7 @@ class GentaAPI:
 
         Create a text completion from text and parameters to the model name.
 
-        Args:
+        ### Args:
             text (str): text
             model_name (str, optional): model name. Defaults to 'Starstreak'.
             best_of (Optional[int], optional): number of samples to generate. Defaults to 1.
@@ -182,7 +182,7 @@ class GentaAPI:
             typical_p (Optional[float], optional): typical p. Defaults to 0.95.
             watermark (Optional[str], optional): watermark. Defaults to False.
 
-        Returns:
+        ### Returns:
             Union[Dict[str, str], int]: response from API and status code
         """
 
