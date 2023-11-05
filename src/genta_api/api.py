@@ -1,3 +1,9 @@
+"""
+# GentaAPI
+
+GentaAPI is a Python wrapper for Genta API.
+"""
+
 import requests
 
 from typing import Optional, List, Dict, Union
