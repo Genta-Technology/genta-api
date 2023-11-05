@@ -3,8 +3,8 @@ requires = ["hatchling", "requests"]
 build-backend = "hatchling.build"
 
 [project]
-name = "genta_api"
-version = "0.0.1.1"
+name = "genta"
+version = "0.0.2.1"
 authors = [
   { name="Rifky Bujana Bisri", email="rifky@genta.tech" },
 ]

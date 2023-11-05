@@ -60,8 +60,8 @@ class GentaAPI:
         chat_history: List[Dict[str, str]],
         model_name: str = 'Starstreak',
         best_of: Optional[int] = 1,
-        decoder_input_details: Optional[bool] = True,
-        details: Optional[bool] = True,
+        decoder_input_details: Optional[bool] = False,
+        details: Optional[bool] = False,
         do_sample: Optional[bool] = True,
         max_new_tokens: Optional[int] = 128,
         repetition_penalty: Optional[float] = 1.03,
@@ -109,7 +109,7 @@ class GentaAPI:
         """
         
         for i in chat_history:
-            if chat_history['role'] not in ['user', 'assistant', 'system']:
+            if i['role'] not in ['user', 'assistant', 'system']:
                 raise ValueError('chat_history must be list of dict with role key: user, assistant, system')
         
         data = {
