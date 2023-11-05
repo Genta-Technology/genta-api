@@ -49,8 +49,8 @@ class GentaAPI:
         ... }, 200)
     """
 
-    CHAT_URL = "https://api.genta.tech/chat/"
-    TEXT_URL = "https://api.genta.tech/text/"
+    __CHAT_URL = "https://api.genta.tech/chat/"
+    __TEXT_URL = "https://api.genta.tech/text/"
 
     def __init__(self, token: str):
         self.token = token
@@ -138,7 +138,7 @@ class GentaAPI:
 
         headers = {"Content-Type": "application/json"}
 
-        response = requests.post(self.CHAT_URL, json=data, headers=headers)
+        response = requests.post(self.__CHAT_URL, json=data, headers=headers)
 
         return response.json(), response.status_code
 
@@ -218,6 +218,6 @@ class GentaAPI:
 
         headers = {"Content-Type": "application/json"}
 
-        response = requests.post(self.TEXT_URL, json=data, headers=headers)
+        response = requests.post(self.__TEXT_URL, json=data, headers=headers)
 
         return response.json(), response.status_code
