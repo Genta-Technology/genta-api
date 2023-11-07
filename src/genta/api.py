@@ -51,6 +51,7 @@ class GentaAPI:
 
     __CHAT_URL = "https://api.genta.tech/chat/"
     __TEXT_URL = "https://api.genta.tech/text/"
+    __EMBD_URL = "https://api.genta.tech/embeddings/"
 
     def __init__(self, token: str):
         self.token = token
@@ -219,5 +220,40 @@ class GentaAPI:
         headers = {"Content-Type": "application/json"}
 
         response = requests.post(self.__TEXT_URL, json=data, headers=headers)
+
+        return response.json(), response.status_code
+    
+    def Embedding(
+        self,
+        text: Union[List[str], str],
+        model_name: str = 'GentaEmbedding',
+        truncation: Optional[bool] = True
+    ) -> Union[List[List[float]], int]:
+        """
+        ## Embedding
+
+        Create a text embedding from text and parameters to the model name.
+
+        ### Args:
+            text (List[str]): text (list of string) to be embedded
+            model_name (str, optional): model name. Defaults to 'GentaEmbedding'.
+            truncation (Optional[bool], optional): truncation. Defaults to True.
+
+        ### Returns:
+            Union[List[List[float]], int]: response from API and status code
+        """
+
+        data = {
+            "token": self.token,
+            "inputs": text,
+            "model_name": model_name,
+            "parameters": {
+                "truncation": truncation
+            }
+        }
+
+        headers = {"Content-Type": "application/json"}
+
+        response = requests.post(self.__EMBD_URL, json=data, headers=headers)
 
         return response.json(), response.status_code
