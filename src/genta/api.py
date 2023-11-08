@@ -248,7 +248,8 @@ class GentaAPI:
             "inputs": text,
             "model_name": model_name,
             "parameters": {
-                "truncation": truncation
+                "truncation": truncation,
+                "max_new_tokens": 0,
             }
         }
 
